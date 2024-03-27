@@ -6,11 +6,13 @@ import Header from "../../components/Header";
 
 
 function Pedido(){
+
+   
   return(
     <div>
         <Header/>
     <div className="meus-filmes">
-      <h1>Meu Pedido</h1>
+      <h1>Meu Pedido</h1>     
       
 
     </div>

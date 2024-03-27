@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { toast } from "react-toastify";
 import Header from "../../components/Header";
 
+
 function Detalhes() {
   const { id } = useParams();
   const [comida, setComida] = useState([]);
@@ -25,8 +26,6 @@ function Detalhes() {
     carregaDados();
   }, [id]);
 
-
-
   return (
     <div>
         <Header/>
@@ -44,9 +43,6 @@ function Detalhes() {
           </article>
         );
       })}
-    </div>
-    <div>
-      <button>Adicionar ao Carrinho</button>
     </div>
     </div>
   );
