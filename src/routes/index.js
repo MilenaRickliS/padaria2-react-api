@@ -7,6 +7,7 @@ import Cardapio from '../pages/Cardapio'
 import Pedido from '../pages/Pedido'
 
 import Private from './private'
+import Detalhes from '../pages/Detalhes';
 
 function RoutesApp(){
   return(
@@ -19,7 +20,7 @@ function RoutesApp(){
       
       <Route path="/cardapio" element={ <Private><Cardapio/></Private> } />
 
-      <Route path="/cardapio/:id" element={<Private><Cardapio/></Private>} />
+      <Route path="/detalhes/:id" element={ <Private><Detalhes/></Private> } />
 
       <Route path="/pedido" element={<Private><Pedido/></Private>} />
     
