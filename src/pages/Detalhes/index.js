@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useParams } from 'react-router-dom';
 import { toast } from "react-toastify";
+import Header from "../../components/Header";
 
 function Detalhes() {
   const { id } = useParams();
@@ -25,6 +26,8 @@ function Detalhes() {
   }, [id]);
 
   return (
+    <div>
+        <Header/>
     <div className="container">
       {comida.map((item) => {
         return (
@@ -39,6 +42,7 @@ function Detalhes() {
           </article>
         );
       })}
+    </div>
     </div>
   );
 }
