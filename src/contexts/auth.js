@@ -18,7 +18,7 @@ function AuthProvider({ children }){
 
   useEffect(() => {
     async function loadUser(){
-      const storageUser = localStorage.getItem('@ticketsPRO')
+      const storageUser = localStorage.getItem('@padaria')
 
       if(storageUser){
         setUser(JSON.parse(storageUser))
@@ -41,7 +41,7 @@ function AuthProvider({ children }){
     .then( async (value) => {
       let uid = value.user.uid;
 
-      const docRef = doc(db, "users", uid);
+      const docRef = doc(db, "padaria", uid);
       const docSnap = await getDoc(docRef)
 
       let data = {
@@ -55,7 +55,7 @@ function AuthProvider({ children }){
       storageUser(data);
       setLoadingAuth(false);
       toast.success("Bem-vindo(a) de volta!")
-      navigate("/dashboard")
+      navigate("/cardapio")
     })
     .catch((error) => {
       console.log(error);
@@ -74,7 +74,7 @@ function AuthProvider({ children }){
     .then( async (value) => {
         let uid = value.user.uid
 
-        await setDoc(doc(db, "users", uid), {
+        await setDoc(doc(db, "padaria", uid), {
           nome: name,
           avatarUrl: null
         })
@@ -91,7 +91,7 @@ function AuthProvider({ children }){
           storageUser(data);
           setLoadingAuth(false);
           toast.success("Seja bem-vindo ao sistema!")
-          navigate("/dashboard")
+          navigate("/cardapio")
           
         })
 
@@ -106,12 +106,12 @@ function AuthProvider({ children }){
 
 
   function storageUser(data){
-    localStorage.setItem('@ticketsPRO', JSON.stringify(data))
+    localStorage.setItem('@padaria', JSON.stringify(data))
   }
 
   async function logout(){
     await signOut(auth);
-    localStorage.removeItem('@ticketsPRO');
+    localStorage.removeItem('@padaria');
     setUser(null);
   }
 
