@@ -8,6 +8,7 @@ import Pedido from '../pages/Pedido'
 
 import Private from './private'
 import Detalhes from '../pages/Detalhes';
+import Conta from '../pages/Conta';
 
 function RoutesApp(){
   return(
@@ -23,6 +24,8 @@ function RoutesApp(){
       <Route path="/detalhes/:id" element={ <Private><Detalhes/></Private> } />
 
       <Route path="/pedido" element={<Private><Pedido/></Private>} />
+
+      <Route path="/conta" element={<Private><Conta/></Private>} />
     
     </Routes>
   )
