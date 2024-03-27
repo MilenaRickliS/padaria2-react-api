@@ -25,6 +25,8 @@ function Detalhes() {
     carregaDados();
   }, [id]);
 
+
+
   return (
     <div>
         <Header/>
@@ -42,6 +44,9 @@ function Detalhes() {
           </article>
         );
       })}
+    </div>
+    <div>
+      <button>Adicionar ao Carrinho</button>
     </div>
     </div>
   );
