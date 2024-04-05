@@ -9,6 +9,9 @@ import Pedido from '../pages/Pedido'
 import Private from './private'
 import Detalhes from '../pages/Detalhes';
 import Conta from '../pages/Conta';
+import ProductCard from '../pages/ProductCard';
+import CartButton from '../pages/CartButton';
+import CartItem from '../pages/CartItem';
 
 function RoutesApp(){
   return(
@@ -20,8 +23,6 @@ function RoutesApp(){
       <Route path="/signup" element={ <SignUp/> } />
       
       <Route path="/cardapio" element={ <Private><Cardapio/></Private> } />
-
-      <Route path="/detalhes/:id" element={ <Private><Detalhes/></Private> } />
 
       <Route path="/pedido" element={<Private><Pedido/></Private>} />
 

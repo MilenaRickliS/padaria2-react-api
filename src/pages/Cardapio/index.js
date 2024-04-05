@@ -1,53 +1,36 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useContext} from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import Header from "../../components/Header";
+import fetchProducts from '../../api/fetchProducts';
+import ProductCard from '../ProductCard/index';
+import Loading from '../../components/Loading/index';
+import AppContext from '../../contexts/AppContext';
+import Pedido from '../Pedido/index';
 
 
-
-function Home() {
-  const [comida, setComida] = useState([]);
-
+function Cardapio() {
+  const { products, setProducts, loading1, setLoading1 } = useContext(AppContext);
+  
 
   useEffect(() => {
-    function carregaDados() {
-      let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-
-      fetch(url)
-        .then((r) => r.json())
-        .then((json) => {
-          setComida(json.meals);
-        })
-        .catch((error) => {
-          toast.error("Erro ao buscar filmes");
-        });
-    }
-
-    carregaDados();
+    fetchProducts('pão').then((response) => {
+      setProducts(response);
+      setLoading1(false);
+    });
   }, []);
 
   return (
-    <div>
-    <Header/>
-    <div className="container">
-      {Array.isArray(comida) &&
-        comida.map((item) => {
-          return (
-            <article className="post" key={item.idMeal}>
-              <strong className="nome">{item.strMeal}</strong>
-              <img className="foto" src={item.strMealThumb} />
-              <a>
-                <Link to={`/detalhes/${item.idMeal}`} className="botao">
-                  Acessar
-                </Link>
-              </a>
-            </article>
-          );
-        })}
-    </div>
-    </div>
+    (loading1 && <Loading /> ) || (
+      <div>
+        <Header/>
+      <section className="products container">
+        {products.map((product) => <ProductCard key={product.id} data={product} />)}
+      </section>
+      <Pedido/>
+      </div>
+    )
+
   );
 }
 
-export default Home;
+export default Cardapio;
