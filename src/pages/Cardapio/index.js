@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "../../components/Header";
 
+
+
 function Home() {
   const [comida, setComida] = useState([]);
+
 
   useEffect(() => {
     function carregaDados() {

@@ -9,6 +9,8 @@ import { toast } from 'react-toastify'
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }){
+  const [cartItens, setCartItens] = useState([]);
+
   const [user, setUser] = useState(null)
   const [loadingAuth, setLoadingAuth] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -126,7 +128,9 @@ function AuthProvider({ children }){
         loadingAuth,
         loading,
         storageUser,
-        setUser
+        setUser,
+        cartItens,
+        setCartItens
       }}
     >
       {children}
