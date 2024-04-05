@@ -108,8 +108,8 @@ export default function Conta(){
 
 
   return(
+    <div><Header/>
     <div>
-      <Header/>
 
       <div className="content">
         <span className='title'>Minha Conta</span>
@@ -144,11 +144,12 @@ export default function Conta(){
        </div>
 
        <div className="container">
-         <button className="logout-btn" onClick={ () => logout() }>Sair</button>
+         <button className="logout-btn" onClick={ () => logout() }>Sair da Conta</button>
        </div>
 
       </div>
 
+    </div>
     </div>
   )
 }

@@ -22,11 +22,11 @@ function Cardapio() {
   return (
     (loading1 && <Loading /> ) || (
       <div>
-        <Header/>
-      <section className="products container">
+        <div><Header/></div>
+      <section className="products">
         {products.map((product) => <ProductCard key={product.id} data={product} />)}
+        <Pedido/>
       </section>
-      <Pedido/>
       </div>
     )
 

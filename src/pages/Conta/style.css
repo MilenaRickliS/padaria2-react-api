@@ -76,11 +76,12 @@
   
   .logout-btn{
     padding: 8px 20px;
-    border: 1px solid #121212;
-    background-color: transparent;
-    border-radius: 5px;
+    background-color: #fff701;
+    border: 0;
+    border-radius: 30px;
     font-size: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #000;
   }

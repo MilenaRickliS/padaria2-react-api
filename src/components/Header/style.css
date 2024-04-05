@@ -1,13 +1,63 @@
 .header {
-    background-color: #fff159;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-  }
-  
-  .header > div {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+  header > div {
+    background-color: #645a37;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px;
   }
+
+  .logo{
+    width: 150px;
+    position: relative;
+}
+.logo img{
+    width: 100%;
+}
+header nav ul{
+  text-align: center;
+  list-style-type: none;
+}
+header nav ul li:visited{
+  text-decoration: none;
+}
+
+header nav ul li:active {
+  text-decoration: none;
+}
+
+header ul li {
+  display: inline-block;
+  padding: 0 40px;
+  font-size: 15px;
+}
+
+header a{
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  transition: .2s;
+}
+header nav ul li a:visited{
+  color: #EEE1B3;
+  text-decoration: none;
+}
+
+
+header a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  transform: scale(1.05);
+  
+}
+header a:active{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
