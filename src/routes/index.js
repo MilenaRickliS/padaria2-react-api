@@ -10,6 +10,8 @@ import Private from './private'
 import Detalhes from '../pages/Detalhes';
 import Conta from '../pages/Conta';
 import FinalizarCompra from '../pages/FinalizarCompra';
+import SobreNos from '../pages/SobreNos';
+import Contato from '../pages/Contato';
 
 
 function RoutesApp(){
@@ -28,6 +30,9 @@ function RoutesApp(){
       <Route path="/conta" element={<Private><Conta/></Private>} />
 
       <Route path="/finalizarCompra" element={<Private><FinalizarCompra/></Private>} />
+
+      <Route path="/sobrenós" element={<Private><SobreNos/></Private>} />
+      <Route path="/contato" element={<Private><Contato/></Private>} />
     
     </Routes>
   )

@@ -19,7 +19,7 @@ function Footer(){
                         </nav>
                         <nav className="menu-footer">
                             <ul>
-                                <li><Link to = '/sobre'>Sobre</Link></li>
+                                <li><Link to = '/sobrenós'>Sobre</Link></li>
                                 <li><Link to = '/contato'>Contato</Link></li>
                             </ul>
                         </nav>
