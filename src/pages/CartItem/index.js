@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import { BsCartDashFill } from 'react-icons/bs';
 
+
 import './style.css';
 import formatCurrency from '../../utils/formatCurrency';
 import AppContext from '../../contexts/AppContext';
@@ -35,9 +36,12 @@ function CartItem({ data }) {
           type="button"
           className="button__remove-item"
           onClick={ handleRemoveItem }
-        >
+        >          
           <BsCartDashFill />
-        </button>
+          </button>
+        
+        
+      
       </div>
     </section>
   );

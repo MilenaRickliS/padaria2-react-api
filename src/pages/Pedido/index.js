@@ -7,18 +7,32 @@ import formatCurrency from '../../utils/formatCurrency';
 import Header from "../../components/Header";
 
 function Pedido() {
-  const { cartItems, isCartVisible } = useContext(AppContext);
+  const { cartItems, setCartItems, isCartVisible } = useContext(AppContext);
 
   const totalPrice = cartItems.reduce((acc, item) => item.price + acc, 0);
+
+  const handleClear = () =>{
+    setCartItems([]);
+  }
 
   return (
     <section>
       <div><Header/></div>
       <div className="cart-items">
-        { cartItems.map((cartItem) => <CartItem key={cartItem.id} data={cartItem} />) }
+            <div className="clear-cart">
+                {cartItems.length >=1 &&(
+                    <button className="clear-button" onClick={handleClear}>Limpar Carrinho</button>
+                )}
+            </div>
+        { cartItems.map((cartItem) => <CartItem key={cartItem.id} data={cartItem} />)}
+        {cartItems.length === 0 &&(
+          <div className="cartitens-empty">Não há produtos adicionados</div>
+        )}
       </div>
 
       <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>
+
+      <button className="finalizar">Finalizar Compra</button>
     </section>
   );
 }
