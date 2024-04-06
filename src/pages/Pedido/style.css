@@ -33,3 +33,38 @@
   .cart--active {
     transform: translate(0, 0);
   }
+  .cartitens-empty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.finalizar{
+  padding: 10px;
+  color: #000;
+  background-color: #d2eeb3;
+  width: 100%;
+}
+.finalizar:hover{
+  width: 100%;
+  background-color: #177414;
+  color: #fff;
+  transform: translateY(0px);
+}
+.clear-button{
+  border:none;
+  border-radius: 5px;
+  background-color: rgb(227, 54, 54);
+  height: 30px;
+  width: 300px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+.clear-button:hover{
+  background-color: red;
+}

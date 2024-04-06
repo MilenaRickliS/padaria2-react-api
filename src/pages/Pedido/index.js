@@ -5,6 +5,7 @@ import CartItem from '../CartItem/index';
 import AppContext from '../../contexts/AppContext';
 import formatCurrency from '../../utils/formatCurrency';
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 function Pedido() {
   const { cartItems, setCartItems, isCartVisible } = useContext(AppContext);
@@ -32,9 +33,11 @@ function Pedido() {
         )}
       </div>
       
-      <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>
+      <div className="cart-resume">Total do Carrinho: {formatCurrency(totalPrice, 'BRL')}</div>
 
       <button className="finalizar">Finalizar Compra</button>
+
+      <div><Footer/></div>
     </section>
   );
 }

@@ -6,6 +6,8 @@ import ProductCard from '../ProductCard/index';
 import Loading from '../../components/Loading/index';
 import AppContext from '../../contexts/AppContext';
 
+import Footer from "../../components/Footer";
+
 function Cardapio() {
   const { products, setProducts, loading1, setLoading1 } = useContext(AppContext);
   
@@ -24,6 +26,7 @@ function Cardapio() {
       <section className="products">
         {products.map((product) => <ProductCard key={product.id} data={product} />)}
       </section>
+      <div><Footer/></div>
       </div>
     )
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 import Header from '../../components/Header'
+import Footer from "../../components/Footer";
 
 import { FiSettings, FiUpload } from 'react-icons/fi'
 import avatar from '../../assets/avatar.png'
@@ -150,6 +151,7 @@ export default function Conta(){
       </div>
 
     </div>
+    <div><Footer/></div>
     </div>
   )
 }

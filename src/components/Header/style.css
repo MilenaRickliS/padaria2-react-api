@@ -38,7 +38,7 @@ header ul li {
 }
 
 header a{
-  color: #ffffff;
+  color: #EEE1B3;
   text-decoration: none;
   display: inline-block;
   transition: .2s;
@@ -50,13 +50,13 @@ header nav ul li a:visited{
 
 
 header a:hover {
-  color: #ffffff;
+  color: #EEE1B3;
   text-decoration: none;
   transform: scale(1.05);
   
 }
 header a:active{
-  color: #ffffff;
+  color: #EEE1B3;
   text-decoration: none;
 }
 .btn-contato2 button {
