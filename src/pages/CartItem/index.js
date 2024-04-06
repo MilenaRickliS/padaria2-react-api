@@ -5,6 +5,7 @@ import { BsCartDashFill } from 'react-icons/bs';
 import './style.css';
 import formatCurrency from '../../utils/formatCurrency';
 import AppContext from '../../contexts/AppContext';
+import { toast } from 'react-toastify';
 
 function CartItem({ data }) {
 
@@ -14,6 +15,8 @@ function CartItem({ data }) {
   const handleRemoveItem = () => {
     const updatedItems = cartItems.filter((item) => item.id != id);
     setCartItems(updatedItems);
+    toast.error("Produto removido do carrinho!");
+
   };
 
   return (

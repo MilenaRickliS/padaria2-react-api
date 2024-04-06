@@ -59,9 +59,21 @@ header a:active{
   color: #ffffff;
   text-decoration: none;
 }
+.btn-contato2 button {
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #EEE1B3;
+  border: 0;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .2s;
+  text-decoration: none;
+  color: #000;
+}
 
 
-@media only screen and (max-width: 700px){  
+/* @media only screen and (max-width: 700px){  
   .logo{
     width: 70px;
     
@@ -73,12 +85,182 @@ header ul li {
 }
 
 @media only screen and (max-width: 630px){  
-  .logo{
-    width: 50px;
+  .btn-contato2 button{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px){  
+  header > div {
+    
+    padding: 10px;
+  }
+} */
+
+.nav-btn i{
+  color: #d9a30d;
+  font-size: 40px;
+}
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #000;
+    overflow: auto;
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 700px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+        overflow: hidden;
+	}
+  .btn-contato2 button{
+    display: none;
+  }
+
+	header nav{
+        overflow: hidden;
+		position: fixed;
+		top: -100vh;
+		right: 0;
+		height: 100%;
+		width: 200px;
+        z-index: 99999;
+		background: rgb(250,243,7);
+        background: linear-gradient(338deg, rgba(250,243,7,1) 0%, rgba(245,245,123,1) 35%, rgba(228,227,212,1) 100%);
+        transition: 1s;
+        gap: 3rem;
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	   
+	}
+    header nav ul{
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+        gap: 3rem;
+        
+    }
+    .cart__button {
+      font-size: 5.5rem;
+      color: #aa8605;
+    }
+    header ul li {
+      font-size: 25px;
+    }
+    header nav ul li a:hover{
+		color: #aa8605;
+	}
+    header nav ul li a {
+        color: #aa8605;
+    }
+
+    header nav ul li a:active{
+        color: #aa8605;
+    }
+    
+    header nav ul li a:hover {
+        color: #aa8605;
+
+    }
+    header nav ul li a:visited{
+      color: #aa8605;
+      text-decoration: none;
+    }
+
+	header .responsive_nav {
+		transform: translateY(100vh);
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+	nav nav ul li{
+		font-size: 1.5rem;
+	}
     
 }
-header ul li {
-  
-  font-size: 10px;
-}
+@media only screen and (min-width: 700px) and (max-width:1020px){
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+        overflow: hidden;
+	}
+  .btn-contato2 button{
+    display: none;
+  }
+
+	header nav{
+        overflow: hidden;
+		position: fixed;
+		top: -100vh;
+		right: 0;
+		height: 100%;
+		width: 500px;
+        z-index: 99999;
+		background: rgb(250,243,7);
+        background: linear-gradient(338deg, rgba(250,243,7,1) 0%, rgba(245,245,123,1) 35%, rgba(228,227,212,1) 100%);
+        transition: 1s;
+        gap: 3rem;
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	   
+	}
+    header nav ul{
+        display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+        gap: 3rem;
+        
+    }
+    .cart__button {
+      font-size: 5.5rem;
+      color: #aa8605;
+    }
+    header nav ul li:hover{
+		color: #aa8605;
+	}
+    header li a{
+        color: #aa8605;
+    }
+    header nav ul li a:visited{
+      color: #aa8605;
+      text-decoration: none;
+    }
+    
+    header nav ul li:hover {
+        
+      color: #aa8605;
+    }
+
+	header .responsive_nav {
+		transform: translateY(100vh);
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+	nav ul li {
+		font-size: 3.5rem;
+	}
+    
 }

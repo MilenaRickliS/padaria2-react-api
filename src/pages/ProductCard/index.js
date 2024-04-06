@@ -5,13 +5,17 @@ import { BsFillCartPlusFill } from 'react-icons/bs';
 import './style.css';
 import formatCurrency from '../../utils/formatCurrency';
 import AppContext from '../../contexts/AppContext';
+import { toast } from 'react-toastify';
 
 function ProductCard({ data }) {
   const { title, thumbnail, price } = data;
 
   const { cartItems, setCartItems } = useContext(AppContext);
 
-  const handleAddCart = () => setCartItems([ ...cartItems, data ]);
+  const handleAddCart = () => {
+    setCartItems([ ...cartItems, data ])
+    toast.success("Produto adicionado ao carrinho!")
+  };
 
   return (
     <section className="product-card">

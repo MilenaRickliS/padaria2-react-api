@@ -4,6 +4,7 @@ import './style.css';
 import CartItem from '../CartItem/index';
 import AppContext from '../../contexts/AppContext';
 import formatCurrency from '../../utils/formatCurrency';
+import Header from "../../components/Header";
 
 function Pedido() {
   const { cartItems, isCartVisible } = useContext(AppContext);
@@ -11,7 +12,8 @@ function Pedido() {
   const totalPrice = cartItems.reduce((acc, item) => item.price + acc, 0);
 
   return (
-    <section className={`cart ${isCartVisible ? 'cart--active' : ''}`}>
+    <section>
+      <div><Header/></div>
       <div className="cart-items">
         { cartItems.map((cartItem) => <CartItem key={cartItem.id} data={cartItem} />) }
       </div>
@@ -20,5 +22,7 @@ function Pedido() {
     </section>
   );
 }
+
+// className={`cart ${isCartVisible ? 'cart--active' : ''}`}
 
 export default Pedido;

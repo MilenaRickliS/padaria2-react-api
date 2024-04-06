@@ -5,8 +5,6 @@ import fetchProducts from '../../api/fetchProducts';
 import ProductCard from '../ProductCard/index';
 import Loading from '../../components/Loading/index';
 import AppContext from '../../contexts/AppContext';
-import Pedido from '../Pedido/index';
-
 
 function Cardapio() {
   const { products, setProducts, loading1, setLoading1 } = useContext(AppContext);
@@ -25,7 +23,6 @@ function Cardapio() {
         <div><Header/></div>
       <section className="products">
         {products.map((product) => <ProductCard key={product.id} data={product} />)}
-        <Pedido/>
       </section>
       </div>
     )
