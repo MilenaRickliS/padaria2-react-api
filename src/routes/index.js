@@ -9,6 +9,7 @@ import Pedido from '../pages/Pedido'
 import Private from './private'
 import Detalhes from '../pages/Detalhes';
 import Conta from '../pages/Conta';
+import FinalizarCompra from '../pages/FinalizarCompra';
 
 
 function RoutesApp(){
@@ -25,6 +26,8 @@ function RoutesApp(){
       <Route path="/pedido" element={<Private><Pedido/></Private>} />
 
       <Route path="/conta" element={<Private><Conta/></Private>} />
+
+      <Route path="/finalizarCompra" element={<Private><FinalizarCompra/></Private>} />
     
     </Routes>
   )
