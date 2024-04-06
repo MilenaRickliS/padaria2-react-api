@@ -30,10 +30,34 @@
   .button__remove-item {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 300px;
     color: #d83232;
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     border: none;
     background: none;
     cursor: pointer;
   }
+  .button__add-cart2 {
+    color: #0c5dd6;
+    position: absolute;
+    top: 40px;
+    right: 300px;
+    font-size: 2.4rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .button__remove-item {
+      top: 0;
+      right: 0px;
+     
+    }
+    .button__add-cart2 {
+      
+      top: 40px;
+      right: 0px;
+      
+  }
+}

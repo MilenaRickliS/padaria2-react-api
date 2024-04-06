@@ -9,7 +9,9 @@ import Header from "../../components/Header";
 function Pedido() {
   const { cartItems, setCartItems, isCartVisible } = useContext(AppContext);
 
-  const totalPrice = cartItems.reduce((acc, item) => item.price + acc, 0);
+  const totalPrice = cartItems.reduce(
+    (price,item) => price + item.quantity * item.price,0
+)
 
   const handleClear = () =>{
     setCartItems([]);
@@ -29,7 +31,7 @@ function Pedido() {
           <div className="cartitens-empty">Não há produtos adicionados</div>
         )}
       </div>
-
+      
       <div className="cart-resume">{formatCurrency(totalPrice, 'BRL')}</div>
 
       <button className="finalizar">Finalizar Compra</button>

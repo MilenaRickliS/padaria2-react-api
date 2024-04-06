@@ -8,13 +8,23 @@ import AppContext from '../../contexts/AppContext';
 import { toast } from 'react-toastify';
 
 function ProductCard({ data }) {
-  const { title, thumbnail, price } = data;
+  const { id, title, thumbnail, price } = data;
 
-  const { cartItems, setCartItems } = useContext(AppContext);
+  const { cartItems, setCartItems} = useContext(AppContext);
+  const ProductExist = cartItems.find((item) => item.id === data.id);
+  const quantity = ProductExist ? ProductExist.quantity : 0;
 
   const handleAddCart = () => {
-    setCartItems([ ...cartItems, data ])
-    toast.success("Produto adicionado ao carrinho!")
+    if (ProductExist) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === data.id ? { ...ProductExist, quantity: quantity + 1 } : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...data, quantity: 1 }]);
+    }
+    toast.success("Produto adicionado ao carrinho!");
   };
 
   return (
