@@ -20,18 +20,19 @@ import {
 
 // Função principal do componente React, que será renderizada na página.
 function Pagamento() {
-    const [idCartao, setIdCartao] = useState('');
+// Estado para armazenar o ID do post a ser editado ou excluído.
+  const [idCartao, setIdCartao] = useState('');
   // Estado para armazenar o nome completo do cliente.
   const [nomeCartao, setNomeCartao] = useState('');
-  // Estado para armazenar o numero do Cartao
+  // Estado para armazenar o numero do cartão
   const [numeroCartao, setNumeroCartao] = useState('');
-  // Estado para armazenar o cidade
+  // Estado para armazenar a data de vencimento
   const [dataV, setDataV] = useState('');
-  // Estado para armazenar o estado
+  // Estado para armazenar o cvv
   const [cvv, setCVV] = useState('');
    
-  // Estado para armazenar a lista de cartões.
-  const [cartao, setCartao] = useState([]);
+  // Estado para armazenar a lista de cartoes.
+  const [cartoes, setCartoes] = useState([]);
 
   // Efeito que carrega os posts do Firestore sempre que o componente é montado.
   useEffect(() => {
@@ -44,27 +45,29 @@ function Pagamento() {
         nomeCartao: doc.data().nomeCartao,
         numeroCartao: doc.data().numeroCartao,
         dataV: doc.data().dataV,
-        cvv: doc.data().cvv,     
+        cvv: doc.data().cvv,       
     })
     })
-    setCartao(listaC);
+    setCartoes(listaC);
     })
     }
     loadPosts();
   }, [])
 
 
-  // Função para adicionar um novo cartão ao Firestore.
+  // Função para adicionar um novo cartão Firestore.
 
-  async function handleAddCartao(){
+  async function handleAddC(){
     await addDoc(collection(db, "padariaPaga"), {
+      idCartao: idCartao,
       nomeCartao: nomeCartao,
       numeroCartao: numeroCartao,
       dataV: dataV,
-      cvv: cvv
+      cvv: cvv,
     })
     .then(() => {
       console.log("CADASTRADO COM SUCESSO")
+      setIdCartao('');
       setNomeCartao('');
       setNumeroCartao('');
       setDataV('');
@@ -75,22 +78,22 @@ function Pagamento() {
     })
   }
 
-  // Função para buscar todos os cartões do Firestore.
-  async function buscarCartao(){
+  // Função para buscar todos os endereços do Firestore.
+  async function buscarC(){
     const postsRef = collection(db, "padariaPaga");
     await getDocs(postsRef)
     .then((snapshot) => {
     let lista = [];
     snapshot.forEach((doc) => {
       lista.push({
-        idCartao: doc.data().idCartao,
+        idCartao: doc.idCartao,
         nomeCartao: doc.data().nomeCartao,
         numeroCartao: doc.data().numeroCartao,
         dataV: doc.data().dataV,
-        cvv: doc.data().cvv,   
+        cvv: doc.data().cvv, 
     })
     })
-    setCartao(lista);
+    setCartoes(lista);
     })
     .catch((error) => {
       console.log("DEU ALGUM ERRO AO BUSCAR");
@@ -98,21 +101,22 @@ function Pagamento() {
   }
 
   // Função para editar um cartão existente no Firestore.
-  async function editarCartao(){
-    const docRef = doc(db, "padariaPaga", numeroCartao);
+  async function editarC(){
+    const docRef = doc(db, "padariaPaga", idCartao);
     await updateDoc(docRef, {
-        nomeCartao: nomeCartao,
-        numeroCartao: numeroCartao,
-        dataV: dataV,
-        cvv: cvv        
+      idCartao: idCartao,
+      nomeCartao: nomeCartao,
+      numeroCartao: numeroCartao,
+      dataV: dataV,
+      cvv: cvv,
     })
     .then(() => {
       console.log("POST ATUALIZADO!");
+      setIdCartao('');
       setNomeCartao('');
       setNumeroCartao('');
       setDataV('');
       setCVV('');
-      
     })
     .catch((error) => {
       console.log(error);
@@ -120,7 +124,7 @@ function Pagamento() {
   }
 
   // Função para excluir um cartão do Firestore.
-  async function excluirCartao(idCartao){
+  async function excluirC(id){
     const docRef = doc(db, "padariaPaga", idCartao);
     await deleteDoc(docRef)
   .then(() =>{
@@ -131,37 +135,38 @@ function Pagamento() {
 // Renderização do componente React.
 return (
   <div className='container' id='finalizarCompra'>
-    <h1>Adicione o seu Cartão para processar a Compra</h1>        
+    <h1>Adicione o seu Cartão de crédito para processar a Compra</h1>        
       <br/><br/>      
       <hr/>
       
       <div className='container' id='endereco'>
       <h2>Cartão de crédito:</h2>
-      <label>ID do cartão:</label>
+      <label>ID do Cartão:</label>
       <input
-      placeholder='Digite o ID cartão'
+      placeholder='Digite o ID do Cartão'
       value={idCartao}
       onChange={ (e) => setIdCartao(e.target.value) }
       /> <br/>
       <label>Nome no cartão:</label>
       <input
+      type="text"
       placeholder='Digite o nome no cartão'
       value={nomeCartao}
       onChange={ (e) => setNomeCartao(e.target.value) }
-      /> <br/>
+      />
       <label>Número do cartão:</label>
       <input
-      type="text"
-      placeholder='Digite o número do cartão'
+      
+      placeholder="Digite o número do cartão"
       value={numeroCartao}
-      onChange={ (e) => setNumeroCartao(e.target.value) }
+      onChange={(e) => setNumeroCartao(e.target.value) }
       />
       <label>Data de vencimento:</label>
       <input
-      type='date'
-      placeholder="Digite a data de vencimento do cartão"
+      type="date"
+      placeholder='Digite a data de vencimento do cartão'
       value={dataV}
-      onChange={(e) => setDataV(e.target.value) }
+      onChange={ (e) => setDataV(e.target.value) }
       />
       <label>CVV:</label>
       <input
@@ -172,21 +177,21 @@ return (
       />
       
       <div>
-        <button onClick={handleAddCartao} className='btn-contato3'>Adicionar Cartão</button>
-        <button onClick={buscarCartao} className='btn-contato3'>Buscar Cartão</button>
-        <button onClick={editarCartao} className='btn-contato3'>Editar Cartão</button>
+        <button onClick={handleAddC} className='btn-contato3'>Adicionar Cartão</button>
+        <button onClick={buscarC} className='btn-contato3'>Buscar Cartão</button>
+        <button onClick={editarC} className='btn-contato3'>Editar Cartão</button>
       </div>
 
       <ul>
-        {cartao.map( (cartao) => {
+        {cartoes.map( (cartao) => {
           return(
           <li key={cartao.idCartao}>
-            <strong>Nome no cartão: {cartao.nomeCartao}</strong> <br/>
-            <span>Número do cartão: {cartao.numeroCartao} </span> <br/>
+            <strong>ID: {cartao.idCartao}</strong> <br/>
+            <span>Nome no cartão: {cartao.nomeCartao} </span> <br/>
+            <span>Número do cartão: {cartao.numeroCartao}</span> <br/>
             <span>Data de vencimento: {cartao.dataV}</span> <br/>
             <span>CVV: {cartao.cvv}</span> <br/>
-            
-            <button onClick={ () => excluirCartao(cartao.idCartao) } className='btn-contato3'>Excluir</button> <br/> <br/>
+            <button onClick={ () => excluirC(cartao.idCartao) } className='btn-contato3'>Excluir</button> <br/> <br/>
           </li>
 
           )
