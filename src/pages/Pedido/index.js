@@ -36,7 +36,9 @@ function Pedido() {
       
       <div className="cart-resume">Total do Carrinho: {formatCurrency(totalPrice, 'BRL')}</div>
 
-      <Link to='/finalizarCompra' className='finalizar'>Finalizar Compra</Link>
+      {cartItems.length >=1 &&(
+          <Link to='/finalizarCompra' className='finalizar'>Finalizar Compra</Link>
+      )}
 
       <div><Footer/></div>
     </section>

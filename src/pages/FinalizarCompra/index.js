@@ -171,77 +171,77 @@ function FinalizarCompra() {
 
 // Renderização do componente React.
 return (
-  <div className='container'>
+  <div className='container' id='finalizarCompra'>
     <h1>Adicione o seu Endereço para processar a Compra</h1>        
       <br/><br/>      
       <hr/>
       
-      <div className='container'>
+      <div className='container' id='endereco'>
       <h2>Endereços:</h2>
       <label>ID do Endereço:</label>
-      <textarea
+      <input
       placeholder='Digite o ID do Endereço'
       value={idEndereco}
       onChange={ (e) => setIdEndereco(e.target.value) }
       /> <br/>
       <label>Nome Completo:</label>
-      <textarea
+      <input
       type="text"
       placeholder='Digite seu nome completo'
       value={nomeCompleto}
       onChange={ (e) => setNomeCompleto(e.target.value) }
       />
       <label>CEP:</label>
-      <textarea
+      <input
       
       placeholder="Digite o seu CEP"
       value={cep}
       onChange={(e) => setCep(e.target.value) }
       />
       <label>Estado:</label>
-      <textarea
+      <input
       type="text"
       placeholder='Digite o estado'
       value={estado}
       onChange={ (e) => setEstado(e.target.value) }
       />
       <label>Cidade:</label>
-      <textarea
+      <input
       type="text"
       placeholder='Digite a cidade'
       value={cidade}
       onChange={ (e) => setCidade(e.target.value) }
       />
       <label>Bairro:</label>
-      <textarea
+      <input
       type="text"
       placeholder='Digite o bairro'
       value={bairro}
       onChange={ (e) => setBairro(e.target.value) }
       />
       <label>Rua/Avenida:</label>
-      <textarea
+      <input
       type="text"
       placeholder='Digite seu nome da rua ou avenida'
       value={rua}
       onChange={ (e) => setRua(e.target.value) }
       />
       <label>Número:</label>
-      <textarea
+      <input
       
       placeholder='Digite o número da moradia'
       value={numero}
       onChange={ (e) => setNumero(e.target.value) }
       />
       <label>Complemento:</label>
-      <textarea
+      <input
       type="text"
       placeholder='Digite seu um complemento para o endereço'
       value={complemento}
       onChange={ (e) => setComplemento(e.target.value) }
       />
       <label>Telefone:</label>
-      <textarea
+      <input
       
       placeholder='Digite seu telefone (xx)xxxxxxxxx'
       value={telefone}
@@ -267,7 +267,7 @@ return (
             <span>Número: {endereco.numero}</span> <br/>
             <span>Complemento: {endereco.complemento}</span> <br/>
             <span>Telefone: {endereco.telefone}</span> <br/>
-            <button onClick={ () => excluirEndereco(endereco.id) }>Excluir</button> <br/> <br/>
+            <button onClick={ () => excluirEndereco(endereco.id) } className='btn-contato3'>Excluir</button> <br/> <br/>
           </li>
 
           )

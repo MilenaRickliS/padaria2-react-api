@@ -1,8 +1,11 @@
+
+ 
  /* Estilos para os inputs */
  input,
  textarea {
+  max-width: 600px;
    width: 100%; /* Largura total */
-   padding: 10px; /* Espaçamento interno */
+   padding: 15px; /* Espaçamento interno */
    margin-bottom: 10px; /* Espaçamento abaixo do input */
    border: 1px solid #ccc; /* Borda */
    border-radius: 5px; /* Borda arredondada */
@@ -20,6 +23,14 @@
     color: #000;
     margin: 5px;
   }
+  .btn-contato3:hover {
+    color: #000;
+    transform: scale(1.05);
+  }
   #finalizarCompra{
-    background-color: #f1f503;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  }
+  #endereco{
+    background-color: rgb(112, 235, 139);
   }
