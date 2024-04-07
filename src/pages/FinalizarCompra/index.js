@@ -272,6 +272,7 @@ return (
 
           )
         })}
+        <Link to='/pagamento' className='proximo'>Próxima Etapa ---></Link>
       </ul>
     </div>
   </div>

@@ -34,3 +34,15 @@
   #endereco{
     background-color: rgb(112, 235, 139);
   }
+  .proximo{
+    color: #f8f5f5;
+    text-decoration: none;
+    background-color: #0d0485;    
+    padding: 10px;
+  }
+  .proximo:hover{
+    color: #f8f5f5;
+    text-decoration: none;
+    background-color: #4e42ec;    
+    padding: 10px;
+  }
