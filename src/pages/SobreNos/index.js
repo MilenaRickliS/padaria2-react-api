@@ -1,0 +1,85 @@
+import { Link } from 'react-router-dom';
+import './style.css';
+import cesto from '../../assets/cesto-pão.png'
+import padaria from '../../assets/padaria.jpeg'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+
+
+function SobreNos(){
+    return(
+        <div>
+            <div><Header/></div>
+            <section className="topo-do-site">
+            <div className="interface">
+                <div className="flex">
+                    <div className="txt-topo-site">
+                        <h1>PANIFICADORA VITÓRIA<span></span></h1>
+                        <p>Desde 1993 fazendo história, preparamos os melhores pães, tortas, bolos,
+                                salgados e doces para saborear e compartilhar em todos os momentos. Visite nossa padaria na
+                                Colônia Vitória, Entre Rios, Guarapuava-PR
+                                ou faça a sua encomenda.</p>
+
+                        <div className="btn-contato">
+                            <Link to = '/contato'>
+                                <button>Entre em contato</button>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="img-topo-site">
+                        <img src={cesto} alt="cesto-de-pão"/>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        <section className="sobre">
+            <div className="interface">
+                <div className="flex">
+                    <div className="img-sobre">
+                        <img src={padaria} alt="padaria" width="100%"/>
+                    </div>
+
+                    <div className="txt-sobre">
+                        <h2>TUDO<span>MUITO GOSTOSO</span></h2>
+                        <p><strong>Assado Fresco Diariamente -</strong> Lorem ipsum dolor, sit amet consectetur
+                            adipisicing elit.</p>
+                        <p><strong>Entregamos na sua porta -</strong> Lorem ipsum dolor, sit amet consectetur
+                            adipisicing elit.</p>
+                        <p><strong>Nenhum pedido é muito grande! -</strong> Lorem ipsum dolor, sit amet consectetur
+                            adipisicing elit.</p>
+                        <p><strong>Valor bom -</strong> Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                        <div className="btn-social">
+                            <a href="#"><button><i class="bi bi-instagram"></i></button></a>
+                            <a href="#"><button><i class="bi bi-whatsapp"></i></button></a>
+                            <a href="#"><button><i class="bi bi-facebook"></i></button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section className="portfolio">
+            <div className="interface">
+                <div className="flex">
+                    <div className="video">
+                        <iframe width="100%" height="300px" src="https://www.youtube.com/embed/vGchkqBDpdQ"
+                            title="Portal RSN | Determinação faz a trajetória da Padaria Vitória em Entre Rios"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div className="video">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3599.1776740101436!2d-51.49240451891925!3d-25.565754980179392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ef4fd942cd30a1%3A0x37922f66db5604a5!2sPanificadora%20Vit%C3%B3ria!5e0!3m2!1spt-BR!2sbr!4v1697571468637!5m2!1spt-BR!2sbr"
+                            width="100%" height="300px" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>  
+        <div><Footer/></div>   
+        </div>
+    );
+}
+
+export default SobreNos;
