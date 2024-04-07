@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import './style.css';
 import CartItem from '../CartItem/index';
@@ -35,7 +36,7 @@ function Pedido() {
       
       <div className="cart-resume">Total do Carrinho: {formatCurrency(totalPrice, 'BRL')}</div>
 
-      <button className="finalizar">Finalizar Compra</button>
+      <Link to='/finalizarCompra' className='finalizar'>Finalizar Compra</Link>
 
       <div><Footer/></div>
     </section>

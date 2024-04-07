@@ -1,0 +1,25 @@
+ /* Estilos para os inputs */
+ input,
+ textarea {
+   width: 100%; /* Largura total */
+   padding: 10px; /* Espaçamento interno */
+   margin-bottom: 10px; /* Espaçamento abaixo do input */
+   border: 1px solid #ccc; /* Borda */
+   border-radius: 5px; /* Borda arredondada */
+ }
+ .btn-contato3{
+    padding: 10px ;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #EEE1B3;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    text-decoration: none;
+    color: #000;
+    margin: 5px;
+  }
+  #finalizarCompra{
+    background-color: #f1f503;
+  }

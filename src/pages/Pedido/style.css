@@ -47,12 +47,17 @@
   color: #000;
   background-color: #d2eeb3;
   width: 100%;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .finalizar:hover{
   width: 100%;
   background-color: #177414;
   color: #fff;
   transform: translateY(0px);
+  text-decoration: none;
 }
 .clear-button{
   border:none;
