@@ -41,7 +41,7 @@ function Pagamento() {
     let listaC = [];
     snapshot.forEach((doc) => {
       listaC.push({
-        idCartao: doc.idCartao,
+        id: doc.id,
         nomeCartao: doc.data().nomeCartao,
         numeroCartao: doc.data().numeroCartao,
         dataV: doc.data().dataV,
@@ -59,7 +59,6 @@ function Pagamento() {
 
   async function handleAddC(){
     await addDoc(collection(db, "padariaPaga"), {
-      idCartao: idCartao,
       nomeCartao: nomeCartao,
       numeroCartao: numeroCartao,
       dataV: dataV,
@@ -67,7 +66,6 @@ function Pagamento() {
     })
     .then(() => {
       console.log("CADASTRADO COM SUCESSO")
-      setIdCartao('');
       setNomeCartao('');
       setNumeroCartao('');
       setDataV('');
@@ -86,7 +84,7 @@ function Pagamento() {
     let lista = [];
     snapshot.forEach((doc) => {
       lista.push({
-        idCartao: doc.idCartao,
+        id: doc.id,
         nomeCartao: doc.data().nomeCartao,
         numeroCartao: doc.data().numeroCartao,
         dataV: doc.data().dataV,
@@ -104,7 +102,6 @@ function Pagamento() {
   async function editarC(){
     const docRef = doc(db, "padariaPaga", idCartao);
     await updateDoc(docRef, {
-      idCartao: idCartao,
       nomeCartao: nomeCartao,
       numeroCartao: numeroCartao,
       dataV: dataV,
@@ -112,7 +109,6 @@ function Pagamento() {
     })
     .then(() => {
       console.log("POST ATUALIZADO!");
-      setIdCartao('');
       setNomeCartao('');
       setNumeroCartao('');
       setDataV('');
@@ -125,7 +121,7 @@ function Pagamento() {
 
   // Função para excluir um cartão do Firestore.
   async function excluirC(id){
-    const docRef = doc(db, "padariaPaga", idCartao);
+    const docRef = doc(db, "padariaPaga", id);
     await deleteDoc(docRef)
   .then(() =>{
     alert("POST DELETADO COM SUCESSO!");
@@ -185,13 +181,13 @@ return (
       <ul>
         {cartoes.map( (cartao) => {
           return(
-          <li key={cartao.idCartao}>
-            <strong>ID: {cartao.idCartao}</strong> <br/>
+          <li key={cartao.id}>
+            <strong>ID: {cartao.id}</strong> <br/>
             <span>Nome no cartão: {cartao.nomeCartao} </span> <br/>
             <span>Número do cartão: {cartao.numeroCartao}</span> <br/>
             <span>Data de vencimento: {cartao.dataV}</span> <br/>
             <span>CVV: {cartao.cvv}</span> <br/>
-            <button onClick={ () => excluirC(cartao.idCartao) } className='btn-contato3'>Excluir</button> <br/> <br/>
+            <button onClick={ () => excluirC(cartao.id) } className='btn-contato3'>Excluir</button> <br/> <br/>
           </li>
 
           )

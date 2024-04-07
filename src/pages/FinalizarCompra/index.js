@@ -144,7 +144,6 @@ function FinalizarCompra() {
     })
     .then(() => {
       console.log("POST ATUALIZADO!");
-
       setNomeCompleto('');
       setCep('');
       setCidade('');
