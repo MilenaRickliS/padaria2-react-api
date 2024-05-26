@@ -19,6 +19,7 @@ function Cardapio() {
     });
   }, []);
 
+
   return (
     (loading1 && <Loading /> ) || (
       <div>
